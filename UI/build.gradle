@@ -37,6 +37,7 @@ android {
 
 dependencies {
     compile project(":Phone")
+    compile project(":SMS")
     compile project(":Ping")
     //compile 'com.android.support:appcompat-v7:19.+'
     compile fileTree(dir: 'libs', include: ['*.jar'])
