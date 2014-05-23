@@ -13,7 +13,7 @@ gen/
 
 # Created by OS.
 .DS_Store
-
+*~*~*~*~*~*~*~*~
 # Generated for IntelliJ IDEA.
 build/
 .idea/
