@@ -1,28 +1,54 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="fill_parent"
-              android:layout_height="wrap_content"
-              android:layout_above="@+id/textView1"
-              android:layout_toLeftOf="@+id/textView1"
-              android:gravity="center"
-              android:orientation="vertical" >
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center_horizontal"
+        >
 
-    <ImageButton
-            android:id="@+id/btnSpeak"
+    <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/ic_launcher"/>
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            >
+        <EditText
+                android:id="@+id/txt_result"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:textSize="20sp"
+                android:paddingBottom="40dip"
+                android:gravity="top|left"
+                android:editable="false"
+                android:background="@drawable/btn_lock_normal"
+                android:textColor="#FFFFFF"/>
 
+    </RelativeLayout>
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+        <Button
+                android:id="@+id/bt_search"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="搜索"
+                android:textColor="#FFFFFF"
+                android:textSize="28sp"
+                android:background="@drawable/btn_lock_normal"
+                >
+        </Button>
+        <Button
+                android:id="@android:id/button2"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dip"
+                android:text="取消"
+                android:textColor="#FFFFFF"
+                android:textSize="28sp"
+                android:background="@drawable/btn_lock_normal"
+                />
 
-<TextView
-android:id="@+id/txtText"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:layout_marginLeft="10dp"
-android:layout_marginRight="10dp"
-android:layout_marginTop="10dp"
-android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
