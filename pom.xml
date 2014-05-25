@@ -10,6 +10,7 @@
     <name>dtool-parent</name>
 
     <modules>
+        <module>FileBrowser</module>
         <module>Phone</module>
         <module>Ping</module>
         <module>SMS</module>

@@ -12,7 +12,7 @@ public class FileBrowserMainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file_browser_main);
-        FileBrowser.browser(this,"/");
+        FileBrowser.browser("/");
     }
 
 
