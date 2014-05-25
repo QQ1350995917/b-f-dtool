@@ -1,0 +1,11 @@
+---
+item: &item
+  property: dir #[dir,file]
+  name: xxx.apk #[name of dir,fullname of file]
+  path: /x/y/z.apk #[abs path of dir,abs path of file]
+...
+
+---
+list: &list
+  - item
+...
