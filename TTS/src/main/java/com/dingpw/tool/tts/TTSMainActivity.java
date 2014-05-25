@@ -3,6 +3,7 @@ package com.dingpw.tool.tts;
 import android.app.Activity;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,6 +34,7 @@ public class TTSMainActivity extends Activity implements TextToSpeech.OnInitList
                 tts.speak(speechText.getText().toString(),TextToSpeech.QUEUE_FLUSH, null);
             }
         });
+
     }
 
     @Override

@@ -11,6 +11,7 @@
 
     <modules>
         <module>FileBrowser</module>
+        <module>Installer</module>
         <module>Phone</module>
         <module>Ping</module>
         <module>SMS</module>

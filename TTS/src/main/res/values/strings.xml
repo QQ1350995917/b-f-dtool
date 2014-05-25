@@ -7,6 +7,6 @@
 
     <string name="string_notAvailable">不支持的语言</string>
     <string name="string_reader">朗读</string>
-    <string name="string_demo">您好,欢迎使用。下面为您朗读英文 Little Robert asked his mother for two cents</string>
+    <string name="string_demo">您好,请输入文字。</string>
 
 </resources>

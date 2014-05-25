@@ -2,6 +2,8 @@ package com.dingpw.tool.installer;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.net.Uri;
 
@@ -13,6 +15,18 @@ import java.io.InputStream;
  * Created by dingpw on 5/25/14.
  */
 public class ApkInstaller {
+
+    public static boolean isPackageNameInstalled(Context context,String packageName) {
+        if (packageName == null || "".equals(packageName)){
+            return false;
+        }
+        try {
+            context.getPackageManager().getApplicationInfo(packageName, PackageManager.GET_UNINSTALLED_PACKAGES);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
+    }
 
     public static void install(Context context,String fileName){
         copyAssetsFile(context,fileName);

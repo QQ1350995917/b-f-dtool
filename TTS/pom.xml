@@ -14,7 +14,17 @@
     <packaging>apk</packaging>
     <name>tts</name>
 
+    <properties>
+        <dtoolInstaller.version>1.0-SNAPSHOT</dtoolInstaller.version>
+    </properties>
+
     <dependencies>
+        <dependency>
+            <groupId>com.dingpw.dtool</groupId>
+            <artifactId>dtoolInstaller</artifactId>
+            <version>${dtoolInstaller.version}</version>
+            <type>aar</type>
+        </dependency>
         <dependency>
             <groupId>com.google.android</groupId>
             <artifactId>android</artifactId>
