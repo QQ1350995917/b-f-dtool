@@ -35,15 +35,18 @@ public class TTSView extends LinearLayout implements TextToSpeech.OnInitListener
         this.textToSpeech = new TextToSpeech(context, this);
 
         this.editText = new EditText(context);
-        LayoutParams editTextLayoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT,4);
+        LayoutParams editTextLayoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT,1);
         this.editText.setLayoutParams(editTextLayoutParams);
         this.editText.setHint(R.string.string_demo);
 
         this.button = new Button(context);
-        LayoutParams buttonLayoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT,1);
+        LayoutParams buttonLayoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT,4);
         this.button.setLayoutParams(buttonLayoutParams);
         this.button.setText(R.string.string_reader);
         this.button.setOnClickListener(new OnReaderButtonClickerListener());
+
+        this.addView(this.editText);
+        this.addView(this.button);
     }
 
     @Override

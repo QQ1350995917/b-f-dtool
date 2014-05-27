@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="list_item">
+        <item>关于手机</item>
+        <item>网络信息</item>
+        <item>APK安装</item>
+        <item>文件浏览</item>
+        <item>短信功能</item>
+        <item>文字阅读</item>
+        <item>语音识别</item>
+    </string-array>
+</resources>
