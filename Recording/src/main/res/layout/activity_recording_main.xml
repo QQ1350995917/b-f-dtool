@@ -10,22 +10,22 @@
             android:layout_height="wrap_content">
         <ImageButton
                 android:id="@+id/ImageButton01"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content">
         </ImageButton>
         <ImageButton
                 android:id="@+id/ImageButton02"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content">
         </ImageButton>
         <ImageButton
                 android:id="@+id/ImageButton03"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content">
         </ImageButton>
         <ImageButton
                 android:id="@+id/ImageButton04"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content">
         </ImageButton>
     </LinearLayout>

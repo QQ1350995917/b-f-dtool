@@ -10,21 +10,11 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>tts</artifactId>
-    <packaging>aar</packaging>
-    <name>tts</name>
-
-    <properties>
-        <dtoolInstaller.version>1.0-SNAPSHOT</dtoolInstaller.version>
-    </properties>
+    <artifactId>dtoolRecording</artifactId>
+    <packaging>apk</packaging>
+    <name>dtoolRecording</name>
 
     <dependencies>
-        <dependency>
-            <groupId>com.dingpw.dtool</groupId>
-            <artifactId>dtoolInstaller</artifactId>
-            <version>${dtoolInstaller.version}</version>
-            <type>aar</type>
-        </dependency>
         <dependency>
             <groupId>com.google.android</groupId>
             <artifactId>android</artifactId>
@@ -32,6 +22,7 @@
         <dependency>
             <groupId>com.google.android</groupId>
             <artifactId>support-v4</artifactId>
+            <type>jar</type>
         </dependency>
     </dependencies>
 
@@ -41,6 +32,7 @@
                 <groupId>com.jayway.maven.plugins.android.generation2</groupId>
                 <artifactId>android-maven-plugin</artifactId>
             </plugin>
+
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
             </plugin>

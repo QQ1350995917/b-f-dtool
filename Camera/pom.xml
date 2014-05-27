@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>dtoolCamera</artifactId>
-    <packaging>apk</packaging>
+    <packaging>aar</packaging>
     <name>dtoolCamera</name>
 
     <dependencies>
