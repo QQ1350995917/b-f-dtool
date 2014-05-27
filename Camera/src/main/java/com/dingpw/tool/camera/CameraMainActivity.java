@@ -34,40 +34,34 @@ public class CameraMainActivity extends Activity implements View.OnClickListener
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.bt_reset:
-                this.imageView.setImageResource(R.drawable.ic_launcher);
-                break;
-            case R.id.iv_shower:
-                if (this.dialog == null) {
-                    this.dialog =
-                            new AlertDialog.Builder(this).setItems(new String[] {"相机", "相册"},
-                                    new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            if (which == 0) {
-                                                Intent cameraintent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                                                // 指定调用相机拍照后照片的储存路径
-                                                cameraintent
-                                                        .putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(sdcardTempFile));
-                                                startActivityForResult(cameraintent, RESULT_CODE_CAMERA);
-                                            } else {
-                                                Intent intent = new Intent("android.intent.action.PICK");
-                                                intent.setDataAndType(MediaStore.Images.Media.INTERNAL_CONTENT_URI,
-                                                        "image/*");
-                                                intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(sdcardTempFile));
-                                                startActivityForResult(intent, RESULT_CODE_ALBUM);
-                                            }
+        if(view == button){
+            this.imageView.setImageResource(R.drawable.ic_launcher);
+        }else if(view == imageView){
+            if (this.dialog == null) {
+                this.dialog =
+                        new AlertDialog.Builder(this).setItems(new String[] {"相机", "相册"},
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        if (which == 0) {
+                                            Intent cameraintent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                                            // 指定调用相机拍照后照片的储存路径
+                                            cameraintent
+                                                    .putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(sdcardTempFile));
+                                            startActivityForResult(cameraintent, RESULT_CODE_CAMERA);
+                                        } else {
+                                            Intent intent = new Intent("android.intent.action.PICK");
+                                            intent.setDataAndType(MediaStore.Images.Media.INTERNAL_CONTENT_URI,
+                                                    "image/*");
+                                            intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(sdcardTempFile));
+                                            startActivityForResult(intent, RESULT_CODE_ALBUM);
                                         }
-                                    }).create();
-                }
-                if (!this.dialog.isShowing()) {
-                    this.dialog.show();
-                }
-                break;
-
-            default:
-                break;
+                                    }
+                                }).create();
+            }
+            if (!this.dialog.isShowing()) {
+                this.dialog.show();
+            }
         }
     }
 
