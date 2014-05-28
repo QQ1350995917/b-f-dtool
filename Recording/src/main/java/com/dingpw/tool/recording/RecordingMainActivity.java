@@ -19,10 +19,11 @@ import java.util.ArrayList;
 
 public class RecordingMainActivity extends Activity {
 
-    private ImageButton myButton1;
-    private ImageButton myButton2;
-    private ImageButton myButton3;
-    private ImageButton myButton4;
+    private Button myButton1;
+    private Button myButton2;
+    private Button myButton3;
+    private Button myButton4;
+
     private ListView myListView1;
     private String strTempFile = "ex07_11_";
     private File myRecAudioFile;
@@ -43,10 +44,10 @@ public class RecordingMainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recording_main);
 
-        myButton1 = (ImageButton) findViewById(R.id.ImageButton01);
-        myButton2 = (ImageButton) findViewById(R.id.ImageButton02);
-        myButton3 = (ImageButton) findViewById(R.id.ImageButton03);
-        myButton4 = (ImageButton) findViewById(R.id.ImageButton04);
+        myButton1 = (Button) findViewById(R.id.ImageButton01);
+        myButton2 = (Button) findViewById(R.id.ImageButton02);
+        myButton3 = (Button) findViewById(R.id.ImageButton03);
+        myButton4 = (Button) findViewById(R.id.ImageButton04);
         myListView1 = (ListView) findViewById(R.id.ListView01);
         myTextView1 = (TextView) findViewById(R.id.TextView01);
         myButton2.setEnabled(false);

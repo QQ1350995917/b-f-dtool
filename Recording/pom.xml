@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>dtoolRecording</artifactId>
-    <packaging>apk</packaging>
+    <packaging>aar</packaging>
     <name>dtoolRecording</name>
 
     <dependencies>

@@ -3,7 +3,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-
     <parent>
         <groupId>com.dingpw.dtool</groupId>
         <artifactId>dtool-parent</artifactId>
@@ -12,7 +11,7 @@
     </parent>
 
     <artifactId>dtoolFileBrowser</artifactId>
-    <packaging>apk</packaging>
+    <packaging>aar</packaging>
     <name>dtoolFileBrowser</name>
 
     <dependencies>
