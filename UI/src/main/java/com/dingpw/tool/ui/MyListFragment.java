@@ -1,8 +1,8 @@
 package com.dingpw.tool.ui;
 
+import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,9 +52,12 @@ public class MyListFragment extends ListFragment {
     mCurCheckPosition = index;
     this.getListView().setItemChecked(index, true);
     if (mShownCheckPosition != mCurCheckPosition) {
-      MyContentFragment df = MyContentFragment.newInstance(index);
+        Fragment fragment = MyContentFragment.newInstance(index);
+        if(index == 3){
+            fragment = new FileBorowserFragment();
+        }
       FragmentTransaction ft = this.getFragmentManager().beginTransaction();
-      ft.replace(R.id.fragment_detail, df);
+      ft.replace(R.id.fragment_detail, fragment);
       ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
       ft.addToBackStack(null);
       ft.commit();

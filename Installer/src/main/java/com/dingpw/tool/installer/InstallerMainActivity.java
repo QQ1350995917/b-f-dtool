@@ -15,7 +15,8 @@ public class InstallerMainActivity extends Activity {
     private class OnLocationClickListener implements View.OnClickListener{
         @Override
         public void onClick(View v) {
-
+            Intent intent = new Intent(InstallerMainActivity.this,FileBrowserActivity.class);
+            InstallerMainActivity.this.startActivityForResult(intent,0);
         }
     }
 
