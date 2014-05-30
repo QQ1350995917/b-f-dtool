@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+import com.sun.servicetag.Installer;
 
 
 public class InstallerMainActivity extends Activity {
@@ -16,19 +18,27 @@ public class InstallerMainActivity extends Activity {
         @Override
         public void onClick(View v) {
             Intent intent = new Intent(InstallerMainActivity.this,FileBrowserActivity.class);
-            InstallerMainActivity.this.startActivityForResult(intent,0);
+            InstallerMainActivity.this.startActivityForResult(intent,RETURN_CODE);
         }
     }
 
     private class OnInstallerClickListener implements View.OnClickListener{
         @Override
         public void onClick(View v) {
-            ApkInstaller.install(InstallerMainActivity.this,"iFly_TTS_ICS_4.0.apk");
+            //ApkInstaller.install(InstallerMainActivity.this,"iFly_TTS_ICS_4.0.apk");
+            CharSequence text = tv_location.getText();
+            if(text == null || text.toString().trim().equals("")){
+                Toast.makeText(InstallerMainActivity.this,"文件路径为空",Toast.LENGTH_LONG).show();
+            }else{
+                ApkInstaller.install(InstallerMainActivity.this,text.toString());
+            }
         }
     }
 
     private TextView tv_location = null;
     private Button bt_installer = null;
+    public static final int RETURN_CODE = 1;
+    public static final String APK_PATH = "apk_path";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,4 +71,12 @@ public class InstallerMainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(resultCode == RETURN_CODE){
+            String path = data.getExtras().getString(APK_PATH);
+            this.tv_location.setText(path);
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 }

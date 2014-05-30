@@ -16,11 +16,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.dingpw</groupId>
-            <artifactId>djson</artifactId>
-            <type>jar</type>
-        </dependency>
-        <dependency>
             <groupId>com.google.android</groupId>
             <artifactId>android</artifactId>
         </dependency>

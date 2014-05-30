@@ -78,7 +78,8 @@ public class FileBrowserView extends RelativeLayout {
                 currentPath = item.getAbsolutePath();
                 listViewAdapter.reset(new File(currentPath).listFiles(defalultFilter));
                 listViewAdapter.notifyDataSetChanged();
-                generateLevel(currentPath);
+                //generateLevel(currentPath);
+                showLevelPath(currentPath);
             }else{
                 defaultFileClickLinsener.onFileClick(item);
             }
@@ -95,7 +96,8 @@ public class FileBrowserView extends RelativeLayout {
                 }
                 listViewAdapter.reset(new File(currentPath).listFiles(defalultFilter));
                 listViewAdapter.notifyDataSetChanged();
-                generateLevel(currentPath);
+                //generateLevel(currentPath);
+                showLevelPath(currentPath);
             }
         }
     }
@@ -185,10 +187,29 @@ public class FileBrowserView extends RelativeLayout {
         this.currentPath = root;
         this.listViewAdapter = new ListViewAdapter(this.getContext(),new File(root).listFiles(this.defalultFilter));
         this.listView.setAdapter(this.listViewAdapter);
+        this.showLevelPath(currentPath);
         return this;
     }
 
+    private void showLevelPath(String currentPath){
+        View path = this.ll_level.getChildAt(0);
+        if(path == null){
+            TextView textView = new TextView(this.getContext());
+            textView.setText(currentPath);
+            this.ll_level.addView(textView);
+        }else{
+            ((TextView)this.ll_level.getChildAt(0)).setText(currentPath);
+        }
+    }
+
+    /**
+     * 生成任意路径的点击事件
+     * @param currentPath
+     */
     private void generateLevel(String currentPath){
+        /*
+        @TODO: 给没个按钮增加点击事件
+         */
         this.ll_level.removeAllViews();
         TextView rootText = new TextView(this.getContext());
         if(new File(root).getAbsolutePath().equals(new File(currentPath).getAbsolutePath())){

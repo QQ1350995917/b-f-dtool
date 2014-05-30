@@ -4,4 +4,5 @@
     android:gravity="center_vertical"
     android:id="@+id/ll_view_file_browser_item"
     android:textSize="20sp"
+    android:background="@drawable/btn_lock_normal"
     />

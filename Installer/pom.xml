@@ -12,7 +12,7 @@
     </parent>
 
     <artifactId>dtoolInstaller</artifactId>
-    <packaging>apk</packaging>
+    <packaging>aar</packaging>
     <name>dtoolInstaller</name>
 
     <dependencies>

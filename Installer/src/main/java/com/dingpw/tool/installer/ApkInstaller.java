@@ -28,13 +28,16 @@ public class ApkInstaller {
         }
     }
 
-    public static void install(Context context,String fileName){
-        copyAssetsFile(context,fileName);
-        File file = context.getFilesDir();
-        System.out.println(file.getAbsolutePath() +"/"+ fileName);
+    public static void install(Context context,String filePath){
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setDataAndType(Uri.fromFile(new File(file.getAbsolutePath() +"/"+ fileName)),"application/vnd.android.package-archive");
+        intent.setDataAndType(Uri.fromFile(new File(filePath)),"application/vnd.android.package-archive");
         context.startActivity(intent);
+    }
+
+    public static void installAssertsApkFile(Context context,String fileName){
+        copyAssetsFile(context, fileName);
+        File file = context.getFilesDir();
+        install(context,file.getAbsolutePath() +"/"+ fileName);
     }
 
     private static void copyAssetsFile(Context context,String fileName){
