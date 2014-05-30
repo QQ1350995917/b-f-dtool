@@ -56,6 +56,9 @@ public class MyListFragment extends ListFragment {
         if(index == 3){
             fragment = new FileBorowserFragment();
         }
+        if(index == 5){
+            fragment = new TTSFragment();
+        }
       FragmentTransaction ft = this.getFragmentManager().beginTransaction();
       ft.replace(R.id.fragment_detail, fragment);
       ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);

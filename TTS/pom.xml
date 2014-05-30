@@ -10,9 +10,9 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>tts</artifactId>
-    <packaging>aar</packaging>
-    <name>tts</name>
+    <artifactId>dtool-tts</artifactId>
+    <packaging>apk</packaging>
+    <name>dtool-tts</name>
 
     <properties>
         <dtoolInstaller.version>1.0-SNAPSHOT</dtoolInstaller.version>

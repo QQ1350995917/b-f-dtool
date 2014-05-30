@@ -1,13 +1,15 @@
 package com.dingpw.tool.tts;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
 import android.speech.tts.TextToSpeech;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Toast;
+import com.dingpw.tool.installer.ApkInstaller;
 
 import java.util.Locale;
 
@@ -22,31 +24,34 @@ public class TTSView extends LinearLayout implements TextToSpeech.OnInitListener
 
     public TTSView(Context context) {
         super(context);
-        this.init(context);
+        this.textToSpeech = new TextToSpeech(context, this);
     }
 
     public TTSView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        this.init(context);
-    }
-
-    private void init(Context context){
-        this.setOrientation(LinearLayout.HORIZONTAL);
         this.textToSpeech = new TextToSpeech(context, this);
 
-        this.editText = new EditText(context);
-        LayoutParams editTextLayoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT,1);
-        this.editText.setLayoutParams(editTextLayoutParams);
-        this.editText.setHint(R.string.string_demo);
+        this.getContext().registerReceiver(new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                System.out.println(" ============================================== " + intent.getAction());
+            }
+        },null);
+    }
 
-        this.button = new Button(context);
-        LayoutParams buttonLayoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT,4);
-        this.button.setLayoutParams(buttonLayoutParams);
-        this.button.setText(R.string.string_reader);
-        this.button.setOnClickListener(new OnReaderButtonClickerListener());
-
-        this.addView(this.editText);
-        this.addView(this.button);
+    private void initView(Context context,boolean runing){
+        this.setOrientation(LinearLayout.VERTICAL);
+        if(runing){
+            View.inflate(this.getContext(),R.layout.view_tts_edit,this);
+            View.inflate(this.getContext(),R.layout.view_tts_reader,this);
+            this.editText = (EditText)this.findViewById(R.id.et_tts_text);
+            this.button = (Button)this.findViewById(R.id.bt_tts_reader);
+            this.button.setOnClickListener(new OnReaderButtonClickerListener());
+        }else{
+            View.inflate(this.getContext(),R.layout.view_tts_install,this);
+            this.button = (Button)this.findViewById(R.id.bt_tts_install);
+            this.setOnClickListener(new OnInstallButtonClickerListener());
+        }
     }
 
     @Override
@@ -57,7 +62,15 @@ public class TTSView extends LinearLayout implements TextToSpeech.OnInitListener
             // 指定当前语音引擎是中文，如果不是给予提示
             int result = this.textToSpeech.setLanguage(Locale.CHINA);
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                Toast.makeText(this.getContext(), R.string.string_notAvailable, Toast.LENGTH_LONG).show();
+                //Toast.makeText(this.getContext(), R.string.string_notAvailable, Toast.LENGTH_LONG).show();
+                if(ApkInstaller.isPackageNameInstalled(this.getContext(),"com.iflytek.tts")){
+                    System.out.println("================================请设置");
+                }else{
+                    System.out.println("================================请安装");
+                    this.initView(this.getContext(),false);
+                }
+            }else{
+                this.initView(this.getContext(),true);
             }
         }
     }
@@ -66,6 +79,13 @@ public class TTSView extends LinearLayout implements TextToSpeech.OnInitListener
         @Override
         public void onClick(View v) {
             textToSpeech.speak(editText.getText().toString(),TextToSpeech.QUEUE_FLUSH, null);
+        }
+    }
+
+    private class OnInstallButtonClickerListener implements OnClickListener{
+        @Override
+        public void onClick(View v) {
+            ApkInstaller.installAssertsApkFile(TTSView.this.getContext(),"ifly_tts_ics.apk");
         }
     }
 }
