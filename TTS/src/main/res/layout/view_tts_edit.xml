@@ -7,5 +7,4 @@
               android:text="@string/string_demo"
               android:gravity="top"
               android:id="@+id/et_tts_text"
-        >
-</EditText>
+        />

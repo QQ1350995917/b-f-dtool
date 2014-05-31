@@ -8,5 +8,6 @@
     <string name="string_tip">您的设备尚未安装支持的语音包，请点击安装</string>
     <string name="string_reader">朗读</string>
     <string name="string_demo">您好,请输入文字。</string>
+    <string name="string_error">您好,如果您发现了我就说明您在Activity的onResume中没有调用TTSViewd的onResume。</string>
 
 </resources>

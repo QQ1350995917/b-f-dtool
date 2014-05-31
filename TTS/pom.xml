@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>dtool-tts</artifactId>
-    <packaging>apk</packaging>
+    <packaging>aar</packaging>
     <name>dtool-tts</name>
 
     <properties>

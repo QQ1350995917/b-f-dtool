@@ -3,12 +3,15 @@ package com.dingpw.tool.ui;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import com.dingpw.tool.camera.CameraMainActivity;
+import com.dingpw.tool.installer.InstallerMainActivity;
 
 public class MyListFragment extends ListFragment {
 
@@ -53,11 +56,24 @@ public class MyListFragment extends ListFragment {
     this.getListView().setItemChecked(index, true);
     if (mShownCheckPosition != mCurCheckPosition) {
         Fragment fragment = MyContentFragment.newInstance(index);
+        if(index == 2){
+            Intent intent = new Intent(this.getActivity(), InstallerMainActivity.class);
+            this.getActivity().startActivity(intent);
+            return;
+        }
         if(index == 3){
             fragment = new FileBorowserFragment();
         }
         if(index == 5){
             fragment = new TTSFragment();
+        }
+        if(index == 7){
+            Intent intent = new Intent(this.getActivity(), CameraMainActivity.class);
+            this.getActivity().startActivity(intent);
+            return;
+        }
+        if(index == 8){
+            fragment = new RecordingFragment();
         }
       FragmentTransaction ft = this.getFragmentManager().beginTransaction();
       ft.replace(R.id.fragment_detail, fragment);
