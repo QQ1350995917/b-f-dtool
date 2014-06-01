@@ -17,6 +17,8 @@
         <module>Phone</module>
         <module>Ping</module>
         <module>SMS</module>
+        <module>STT</module>
+        <module>AnSiri</module>
         <module>TTS</module>
         <module>UI</module>
     </modules>

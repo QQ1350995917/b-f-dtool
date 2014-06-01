@@ -67,6 +67,9 @@ public class MyListFragment extends ListFragment {
         if(index == 5){
             fragment = new TTSFragment();
         }
+        if(index == 6){
+            fragment = new STTFragment();
+        }
         if(index == 7){
             Intent intent = new Intent(this.getActivity(), CameraMainActivity.class);
             this.getActivity().startActivity(intent);
@@ -75,12 +78,15 @@ public class MyListFragment extends ListFragment {
         if(index == 8){
             fragment = new RecordingFragment();
         }
-      FragmentTransaction ft = this.getFragmentManager().beginTransaction();
-      ft.replace(R.id.fragment_detail, fragment);
-      ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-      ft.addToBackStack(null);
-      ft.commit();
-      mShownCheckPosition = index;
+        if(index == 9){
+            fragment = new AnSiriFragment();
+        }
+        FragmentTransaction ft = this.getFragmentManager().beginTransaction();
+        ft.replace(R.id.fragment_detail, fragment);
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ft.addToBackStack(null);
+        ft.commit();
+        mShownCheckPosition = index;
     }
   }
 
