@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>dsms</artifactId>
-    <packaging>apk</packaging>
+    <packaging>aar</packaging>
     <name>dsms</name>
 
     <dependencies>

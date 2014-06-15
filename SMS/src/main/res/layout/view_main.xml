@@ -7,7 +7,7 @@
 
     <TabWidget android:id="@android:id/tabs" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="100dp"/>
     <FrameLayout android:id="@android:id/tabcontent" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="100dp">
-        <RelativeLayout android:id="@+id/ll_export" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
             <LinearLayout android:id="@+id/ll_export" android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical">
                 <EditText android:id="@+id/ed_export" android:layout_width="fill_parent" android:layout_height="wrap_content"
                           android:background="@drawable/btn_lock_normal" android:hint="@string/string_export_sms_hint"
@@ -17,7 +17,7 @@
                 <Button android:id="@+id/bt_export_open_file" android:layout_width="fill_parent" android:layout_height="wrap_content"
                         android:background="@drawable/btn_lock_normal" android:visibility="gone" android:textColor="#FFFFFF"/>
             </LinearLayout>
-            <LinearLayout android:id="@+id/ll_import" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:id="@+id/ll_import" android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical">
                 <Button android:id="@+id/bt_import_location" android:layout_width="fill_parent" android:layout_height="wrap_content"
                         android:background="@drawable/btn_lock_normal" android:text="@string/string_import_sms_hint" android:textColor="#FFFFFF"/>
                 <Button android:id="@+id/bt_import" android:layout_width="fill_parent" android:layout_height="wrap_content"
