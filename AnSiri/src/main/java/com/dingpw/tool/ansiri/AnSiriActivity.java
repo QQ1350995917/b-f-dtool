@@ -11,6 +11,5 @@ public class AnSiriActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(new AnSiriView(this));
-
     }
 }

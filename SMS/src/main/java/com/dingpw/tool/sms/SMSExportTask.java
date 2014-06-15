@@ -7,10 +7,8 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import com.dingpw.dhelper.DateTimeUtils;
 import com.dingpw.djson.Djson;
-import com.dingpw.djson.DjsonArray;
 import com.dingpw.djson.DjsonObject;
 
-import java.io.File;
 import java.io.FileWriter;
 
 /**
@@ -92,7 +90,7 @@ public class SMSExportTask extends AsyncTask<DjsonObject, DjsonObject, DjsonObje
                         String seen = cursor.getString(cursor.getColumnIndex(SEEN));
                         jsonObject.set(SEEN, seen);
                         writer.write(jsonObject.toString() + "\r\n");
-                        publishProgress(djsonObject.set(KEY_STATUS,"progressing").set(KEY_TOTAL,cursorConut).set(KEY_INDEX,index ++).set(KEY_SMS,jsonObject).set(KEY_SERIALIZATION,true));
+                        publishProgress(djsonObject.set(KEY_STATUS, "progressing").set(KEY_TOTAL, cursorConut).set(KEY_INDEX, index++).set(KEY_SMS, jsonObject).set(KEY_SERIALIZATION, true));
                     }while (cursor.moveToNext());
                 }catch (Exception e){
                     publishProgress(djsonObject.set(KEY_STATUS,"error").set(KEY_TOTAL,cursorConut).set(KEY_INDEX,index).set(KEY_SERIALIZATION,false).set(KEY_ERROR_MESSAGE,e.getMessage()));

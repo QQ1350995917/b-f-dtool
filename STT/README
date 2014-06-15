@@ -1,0 +1,7 @@
+依赖：科大讯飞语音识别开发工具包 格式jar
+执行命令mvn install:install-file -DgroupId=com.iflytek -DartifactId=speech -Dversion=1.0 -Dpackaging=jar -Dfile= [path to file]
+
+依赖：科大讯飞语音识别开发工具包 格式so
+执行命令mvn install:install-file -DgroupId=com.iflytek -DartifactId=libmsc -Dversion=1.0 -Dpackaging=so -Dfile= [path to file]
+
+下载链接：http://pan.baidu.com/s/1c0H3MNm

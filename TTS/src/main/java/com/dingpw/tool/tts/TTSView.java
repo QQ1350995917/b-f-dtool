@@ -33,7 +33,11 @@ public class TTSView extends LinearLayout implements TextToSpeech.OnInitListener
 
     private void initTTS(){
         this.removeAllViews();
-        this.textToSpeech = new TextToSpeech(this.getContext(), this);
+        try {
+            this.textToSpeech = new TextToSpeech(this.getContext(), this);
+        } catch (Exception e){
+
+        }
         this.setOrientation(LinearLayout.VERTICAL);
         String defaultEngine = this.textToSpeech.getDefaultEngine();
         if(!ApkInstaller.isPackageNameInstalled(this.getContext(),DEFAULT_TTS_ENGINE)){

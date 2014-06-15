@@ -17,13 +17,13 @@ public class TTSMainActivity extends Activity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(this.ttsView = new TTSView(this));
-        this.receiver = new IflyTTSStatusReceiver();
+        //this.receiver = new IflyTTSStatusReceiver();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        this.unregisterReceiver(this.receiver);
+        //this.unregisterReceiver(this.receiver);
     }
 
     @Override
@@ -37,7 +37,7 @@ public class TTSMainActivity extends Activity{
         intentFilter.addAction(Intent.ACTION_PACKAGE_FULLY_REMOVED);
         intentFilter.addAction(Intent.ACTION_PACKAGE_REPLACED);
         intentFilter.addAction(Intent.ACTION_PACKAGE_RESTARTED);
-        this.registerReceiver(this.receiver, intentFilter);
+        //this.registerReceiver(this.receiver, intentFilter);
         this.ttsView.onResume();
     }
 

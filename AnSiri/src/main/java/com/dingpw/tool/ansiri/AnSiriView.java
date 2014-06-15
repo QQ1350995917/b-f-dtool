@@ -7,6 +7,8 @@ import android.os.Message;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.dingpw.djson.Djson;
+import com.dingpw.djson.DjsonObject;
 import com.dingpw.tool.stt.STTSpeakerView;
 import com.dingpw.tool.tts.TTSUtil;
 import org.apache.http.HttpResponse;
@@ -64,6 +66,10 @@ public class AnSiriView extends RelativeLayout{
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             String text = msg.obj.toString();
+            if(text != null){
+                DjsonObject djsonObject = (DjsonObject)Djson.parse(text);
+                text = djsonObject.getString("text");
+            }
             tv_ansiri_item_right.setText(text);
             ttsUtil.reader(text);
         }
