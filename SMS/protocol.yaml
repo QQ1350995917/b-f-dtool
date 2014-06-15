@@ -1,0 +1,35 @@
+--- &SMS # 短信
+address: 13331093552 # 号码
+person: DingPengwei # 联系人
+date: 2014-06-15 # 日期
+protocol:
+read: 0 # [0:未读|1:已读]
+status:
+type: 1 # [1:收件箱|2:发件箱]
+replyPathPresent:
+body:
+locked:
+errorCode:
+seen: 0 # [0:未读|1:已读]
+...
+
+--- # input parameter
+phoneNumber: 13331093552 # 要导出的信息的电话号码，默认值是所有的电话号码 Optional
+...
+
+--- # onStart
+preExecute: preparing # [preparing] 准备的状态
+...
+
+--- # onProgressing
+status: prepared # [prepared | progressing | error]
+total: 1000 # 消息总的数量
+index: 100 # 当前消息的下标 Optional Necessary when status progressing
+serialization: true # 该条记录的导出结果是否是成功的 Optional Necessary when progress progressing
+errorMessage: null point # Optional Necessary when status error
+sms: *SMS # Optional Necessary when progress progressing
+...
+
+--- # onEnd
+total: 1000 # 消息总的数量
+...

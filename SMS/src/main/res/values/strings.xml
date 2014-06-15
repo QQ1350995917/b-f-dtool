@@ -4,5 +4,14 @@
     <string name="app_name">SMS</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="string_export">导出</string>
+    <string name="string_export_sms">短信导出</string>
+    <string name="string_export_sms_hint">请输入号码(默认全部)</string>
+    <string name="string_import">导入</string>
+    <string name="string_import_sms">短信导入</string>
+    <string name="string_import_sms_hint">选择文件位置</string>
+    <string name="string_import_tip_error_phone_number">您输入的号码错误</string>
+    <string name="string_export_dir">/mnt/sdcard/Dsms/export/</string>
+    <string name="string_export_tip_end">导出完成</string>
 
 </resources>
